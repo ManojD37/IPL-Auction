@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
 const helmet = require("helmet");
 const morgan = require("morgan");
 const socketio = require("socket.io");
@@ -18,16 +19,16 @@ const server = http.createServer(app);
 
 const io = socketio(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: process.env.DEV_REACT_URL,
     credentials: true,
   },
 });
 
-//Middleware
+// Middleware
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.DEV_REACT_URL,
     credentials: true,
   })
 );
