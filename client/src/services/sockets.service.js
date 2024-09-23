@@ -2,7 +2,7 @@ import io from "socket.io-client";
 
 const url =
   process.env.NODE_ENV === "production"
-    ? "https://ipl-mega-auction.herokuapp.com/"
+    ? "https://surapettai-ipl-auction.onrender.com/"
     : "http://localhost:8000/";
 let socket;
 
