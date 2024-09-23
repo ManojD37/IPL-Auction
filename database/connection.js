@@ -18,7 +18,6 @@
 //     console.log(process.env.PROD_MONGO_URL);
 //   });
 
-// module.exports = db;
 const mongoose = require("mongoose");
 
 // Use the appropriate MongoDB URL based on the environment
@@ -26,6 +25,19 @@ const url =
   process.env.NODE_ENV !== "production"
     ? process.env.DEV_MONGO_URL
     : process.env.PROD_MONGO_URL;
+
+// Check if the MongoDB URL is defined, and log an error if not
+if (!url) {
+  console.error(
+    "MongoDB URL is undefined. Please check your environment variables."
+  );
+  console.error(
+    `Current environment: ${process.env.NODE_ENV}. Expected URL: ${
+      process.env.NODE_ENV !== "production" ? "DEV_MONGO_URL" : "PROD_MONGO_URL"
+    }`
+  );
+  process.exit(1); // Exit the process if no URL is defined
+}
 
 // Connect to MongoDB
 const db = mongoose
@@ -42,6 +54,7 @@ const db = mongoose
     console.error("Error details:", error); // Log full error object
     console.log("Development MongoDB URL:", process.env.DEV_MONGO_URL); // Log dev URL
     console.log("Production MongoDB URL:", process.env.PROD_MONGO_URL); // Log prod URL
+    process.exit(1); // Exit the process if the connection fails
   });
 
 // Export the connection
