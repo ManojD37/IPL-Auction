@@ -5,7 +5,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-![Ipl-Auction](https://socialify.git.ci/Coder-Srinivas/Ipl-Auction/image?description=1&font=Source%20Code%20Pro&forks=1&language=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Dark)
+![Ipl-Auction]
 
 ## Hit ⭐ if you like this project
 
